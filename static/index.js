@@ -9,4 +9,16 @@ $(document).ready(function() {
 		});
 		evt.preventDefault();
 	});
+
+	$("#get_linkedin_profile").click(function(evt){
+		var linkedinid = $("#linkedinid").val();
+		$.ajax({
+			method: "GET",
+			url: "/linkedin/authurl/" + linkedinid
+		}).done(function(data){
+			console.dir(data)
+			window.location.replace(data);
+		});
+		evt.preventDefault();
+	});
 });
