@@ -11,36 +11,25 @@
 {% block content %}
 <div class='row'>
 	<div class='col'>
-		<form class='form-inline'>
+		<form id="torreform" class='form-inline'>
 			<input class='form-control' id="personid" type="text" placeholder="Torre Bio ID">
 			<button type='submit' class="btn btn-primary" id="get_torre_bio">Get my Torre Bio!</button>
 		</form>
 		<div class="torre_bio"></div>
 	</div>
 	<div class='col'>
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#linkedin_modal">
-			LinkedIn
-		</button>
-		{% if linkedin_profile %}
+		<form id="linkedinform" class='form-inline'>
+			<input class='form-control' id="linkedinid" type="text" placeholder="LinkedIn ID">
+			<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#linkedin_modal">
+				LinkedIn
+			</button>
+		</form>
 		<div class="linkedin_profile">
+		{% if linkedin_profile %}
 			<span>{{ linkedin_profile['firstName'] }}</span>
-		</div>
 		{% endif %}
+		</div>
 	</div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="linkedin_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-body">
-				<input class='form-control' id="linkedinid" type="text" placeholder="LinkedIn ID">
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" id="get_linkedin_profile">Get My LinkedIn!</button>
-			</div>
-		</div>
-	</div>
-</div>
 {% endblock %}
