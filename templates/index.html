@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	My LinkedTorre profile
+{% endblock %}
+
+{% block script %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="{{ url_for('static', filename='index.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class='row'>
+	<div class='col'>
+		<form class='form-inline'>
+			<input class='form-control' id="personid" type="text" placeholder="Torre Bio ID">
+			<button type='submit' class="btn btn-primary" id="get_torre_bio">Get my Torre Bio!</button>
+		</form>
+		<div class="torre_bio"></div>
+	</div>
+	<div class='col'>
+		<span>LinkedIn</span>
+	</div>
+</div>
+{% endblock %}

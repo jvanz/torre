@@ -1,0 +1,13 @@
+<img src=" {{ bio['person']['picture'] }}">
+<span class='person_name'>{{ bio['person']['name'] }}</span>
+<span>{{ bio['person']['professionalHeadline'] }}</span>
+<span>{{ bio['person']['location'] }}</span>
+<span>{{ bio['person']['summaryOfBio'] }}</span>
+
+<div class="torrelink">
+	{% for link in bio['person']['links'] %}
+	<a href="{{ link['address'] }}">
+		<i class="fab fa-{{ link['name'] }}"></i>
+	</a>
+	{% endfor %}
+</div>
