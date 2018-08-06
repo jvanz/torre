@@ -40,4 +40,11 @@ def get_linkedin_authorized():
     cache[state].authorization_code = code
     token = cache[state].get_access_token()
     application = LinkedInApplication(token=token)
+    profile = application.get_profile(selectors=[
+        'id', 'first-name', 'last-name', 'maiden-name', 'formatted-name',
+        'phonetic-first-name', 'phonetic-last-name', 'formatted-phonetic-name',
+        'headline', 'location', 'industry', 'current-share', 'num-connections',
+        'num-connections-capped', 'summary', 'specialties', 'positions',
+        'picture-url', 'picture-urls', 'site-standard-profile-request',
+        'api-standard-profile-request', 'public-profile-url', 'email-address'] )
     return render_template("index.html", linkedin_profile=application.get_profile())
